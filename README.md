@@ -1,6 +1,5 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/status-in%20development-8b5cf6?style=for-the-badge" alt="status">
 <img src="https://img.shields.io/badge/manifest-v3-1a1b2e?style=for-the-badge" alt="manifest v3">
 <img src="https://img.shields.io/badge/encryption-AES--256--GCM-8b5cf6?style=for-the-badge" alt="AES-256-GCM">
 <img src="https://img.shields.io/badge/KDF-Argon2id-1a1b2e?style=for-the-badge" alt="Argon2id">
