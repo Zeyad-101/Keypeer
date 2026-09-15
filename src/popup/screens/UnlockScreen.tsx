@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '../../shared/components/Button';
 import { Input } from '../../shared/components/Input';
-import { KeyRound, Eye, EyeOff, ShieldCheck, Lock } from 'lucide-react';
+import { KeyRound, Eye, EyeOff } from 'lucide-react';
 
 interface UnlockScreenProps {
   isInitMode: boolean;
@@ -38,7 +38,7 @@ export const UnlockScreen: React.FC<UnlockScreenProps> = ({
     'bg-zinc-700',
     'bg-rose-500',
     'bg-amber-500',
-    'bg-indigo-500',
+    'bg-violet-500',
     'bg-emerald-500',
   ];
 
@@ -82,11 +82,12 @@ export const UnlockScreen: React.FC<UnlockScreenProps> = ({
 
   return (
     <div className="flex flex-col h-full justify-between p-6 bg-zinc-900 select-none">
-      <div className="flex flex-col items-center text-center mt-4">
-        {/* Header Icon */}
-        <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-3 shadow-inner">
-          {isInitMode ? <ShieldCheck className="w-7 h-7" /> : <Lock className="w-7 h-7" />}
-        </div>
+      <div className="flex flex-col items-center text-center mt-2">
+        <img
+          src="/icons/128.png"
+          alt="Keypeer"
+          className="w-16 h-16 rounded-2xl mb-3 shadow-lg shadow-violet-950/60 border border-violet-500/20"
+        />
         <h1 className="text-xl font-bold tracking-tight text-zinc-100">
           {isInitMode ? 'Create Master Password' : 'Unlock Keypeer'}
         </h1>
@@ -119,7 +120,6 @@ export const UnlockScreen: React.FC<UnlockScreenProps> = ({
             }
           />
 
-          {/* Password Strength Meter for Init Mode */}
           {isInitMode && password.length > 0 && (
             <div className="mt-2">
               <div className="flex justify-between items-center text-[10px] text-zinc-400 mb-1">

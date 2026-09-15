@@ -76,7 +76,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       {/* Auto-lock Section */}
       <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+          <div className="p-2 rounded-lg bg-violet-500/10 text-violet-400 border border-violet-500/20">
             <Clock className="w-5 h-5" />
           </div>
           <div>
@@ -91,7 +91,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           <select
             value={autoLock}
             onChange={(e) => setAutoLock(Number(e.target.value))}
-            className="bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-zinc-100 focus:outline-none focus:ring-2 focus:ring-violet-500"
           >
             <option value={1}>1 minute</option>
             <option value={5}>5 minutes (recommended)</option>
@@ -120,7 +120,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       {/* Change Master Password Section */}
       <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+          <div className="p-2 rounded-lg bg-violet-500/10 text-violet-400 border border-violet-500/20">
             <KeyRound className="w-5 h-5" />
           </div>
           <div>

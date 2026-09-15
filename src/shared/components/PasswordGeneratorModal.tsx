@@ -67,7 +67,7 @@ export const PasswordGeneratorModal: React.FC<PasswordGeneratorModalProps> = ({
     <Modal isOpen={isOpen} onClose={onClose} title="Password Generator">
       <div className="space-y-4">
         {/* Generated password display */}
-        <div className="flex items-center justify-between gap-2 p-3 bg-zinc-800 rounded-lg border border-zinc-700 font-mono text-sm break-all text-indigo-300 select-all">
+        <div className="flex items-center justify-between gap-2 p-3 bg-zinc-800 rounded-lg border border-zinc-700 font-mono text-sm break-all text-violet-300 select-all">
           <span>{generatedPassword}</span>
           <div className="flex items-center gap-1 shrink-0">
             <button
@@ -103,7 +103,7 @@ export const PasswordGeneratorModal: React.FC<PasswordGeneratorModalProps> = ({
               setLength(val);
               setGeneratedPassword(generate(val));
             }}
-            className="w-full accent-indigo-500 cursor-pointer"
+            className="w-full accent-violet-500 cursor-pointer"
           />
         </div>
 
@@ -117,7 +117,7 @@ export const PasswordGeneratorModal: React.FC<PasswordGeneratorModalProps> = ({
                 setIncludeUppercase(e.target.checked);
                 setGeneratedPassword(generate(length, e.target.checked));
               }}
-              className="rounded accent-indigo-500"
+              className="rounded accent-violet-500"
             />
             Uppercase (A-Z)
           </label>
@@ -129,7 +129,7 @@ export const PasswordGeneratorModal: React.FC<PasswordGeneratorModalProps> = ({
                 setIncludeLowercase(e.target.checked);
                 setGeneratedPassword(generate(length, undefined, e.target.checked));
               }}
-              className="rounded accent-indigo-500"
+              className="rounded accent-violet-500"
             />
             Lowercase (a-z)
           </label>
@@ -141,7 +141,7 @@ export const PasswordGeneratorModal: React.FC<PasswordGeneratorModalProps> = ({
                 setIncludeNumbers(e.target.checked);
                 setGeneratedPassword(generate(length, undefined, undefined, e.target.checked));
               }}
-              className="rounded accent-indigo-500"
+              className="rounded accent-violet-500"
             />
             Numbers (0-9)
           </label>
@@ -153,7 +153,7 @@ export const PasswordGeneratorModal: React.FC<PasswordGeneratorModalProps> = ({
                 setIncludeSymbols(e.target.checked);
                 setGeneratedPassword(generate(length, undefined, undefined, undefined, e.target.checked));
               }}
-              className="rounded accent-indigo-500"
+              className="rounded accent-violet-500"
             />
             Symbols (!@#$)
           </label>

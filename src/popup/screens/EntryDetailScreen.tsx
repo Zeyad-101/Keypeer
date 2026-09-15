@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 
 interface EntryDetailScreenProps {
-  entry: KeypeerEntryPublic | null; // null for new entry
+  entry: KeypeerEntryPublic | null;
   onBack: () => void;
   onSave: (data: {
     domain: string;
@@ -143,7 +143,7 @@ export const EntryDetailScreen: React.FC<EntryDetailScreenProps> = ({
             <button
               type="button"
               onClick={() => setIsGeneratorOpen(true)}
-              className="inline-flex items-center gap-1 text-[11px] text-indigo-400 hover:text-indigo-300 transition-colors"
+              className="inline-flex items-center gap-1 text-[11px] text-violet-400 hover:text-violet-300 transition-colors"
             >
               <Wand2 className="w-3 h-3" />
               Generate
@@ -178,7 +178,7 @@ export const EntryDetailScreen: React.FC<EntryDetailScreenProps> = ({
               placeholder="Recovery codes, PIN, etc."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full rounded-lg bg-zinc-800/80 border border-zinc-700/80 focus:border-indigo-500 focus:ring-indigo-500/30 px-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-1 transition-colors resize-none"
+              className="w-full rounded-lg bg-zinc-800/80 border border-zinc-700/80 focus:border-violet-500 focus:ring-violet-500/30 px-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-1 transition-colors resize-none"
             />
           </div>
         </div>

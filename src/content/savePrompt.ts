@@ -15,14 +15,12 @@ export function setupSavePrompt(detectedForm: DetectedLoginForm): void {
     const domain = window.location.hostname;
     if (neverDomains.has(domain)) return;
 
-    // Verify vault status
     try {
       chrome.runtime.sendMessage(
         { type: 'KEYPEER_STATUS' },
         (statusRes: KeypeerResponse<KeypeerStatus>) => {
           if (!statusRes?.success || !statusRes.data.unlocked) return;
 
-          // Check if credential already exists
           chrome.runtime.sendMessage(
             { type: 'KEYPEER_GET_MATCHING_CREDENTIALS', domain },
             (credRes: KeypeerResponse<KeypeerEntryPublic[]>) => {
@@ -39,7 +37,7 @@ export function setupSavePrompt(detectedForm: DetectedLoginForm): void {
         }
       );
     } catch {
-      // Runtime disconnected
+      // Disconnected
     }
   };
 
@@ -47,7 +45,6 @@ export function setupSavePrompt(detectedForm: DetectedLoginForm): void {
     form.addEventListener('submit', handlePossibleSubmit);
   }
 
-  // Fallback for Enter key in password field
   passwordInput.addEventListener('keydown', (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
       setTimeout(handlePossibleSubmit, 100);
@@ -98,7 +95,7 @@ function renderSaveBanner(domain: string, username: string, password: string): v
     .icon {
       width: 24px;
       height: 24px;
-      background: #4f46e5;
+      background: #7c3aed;
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -123,7 +120,7 @@ function renderSaveBanner(domain: string, username: string, password: string): v
       border-radius: 4px;
       font-size: 12px;
       font-family: monospace;
-      color: #818cf8;
+      color: #c4b5fd;
       word-break: break-all;
       margin-bottom: 14px;
     }
@@ -142,11 +139,11 @@ function renderSaveBanner(domain: string, username: string, password: string): v
       transition: background 0.15s ease;
     }
     .btn-save {
-      background: #4f46e5;
+      background: #7c3aed;
       color: white;
     }
     .btn-save:hover {
-      background: #6366f1;
+      background: #8b5cf6;
     }
     .btn-dismiss {
       background: #27272a;

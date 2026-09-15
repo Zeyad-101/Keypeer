@@ -34,7 +34,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             className={`w-full rounded-lg bg-zinc-800/80 border ${
               error
                 ? 'border-rose-500 focus:border-rose-500 focus:ring-rose-500/30'
-                : 'border-zinc-700/80 focus:border-indigo-500 focus:ring-indigo-500/30'
+                : 'border-zinc-700/80 focus:border-violet-500 focus:ring-violet-500/30'
             } px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 transition-colors ${
               startIcon ? 'pl-9' : ''
             } ${endIcon ? 'pr-10' : ''} ${className}`}

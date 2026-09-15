@@ -29,7 +29,6 @@ export function setNativeInputValue(input: HTMLInputElement, value: string): voi
 export function attachAutofillWidget(form: DetectedLoginForm): void {
   const { usernameInput, passwordInput } = form;
 
-  // Avoid duplicate attachment
   if ((usernameInput as any)[ATTACHED_FLAG]) {
     return;
   }
@@ -37,20 +36,19 @@ export function attachAutofillWidget(form: DetectedLoginForm): void {
 
   const domain = window.location.hostname;
 
-  // Check if credentials exist for this domain first
   try {
     chrome.runtime.sendMessage(
       { type: 'KEYPEER_HAS_ENTRY_FOR_DOMAIN', domain },
       (response: KeypeerResponse<boolean>) => {
         if (!response || !response.success || !response.data) {
-          return; // No credentials for this domain, skip rendering widget
+          return;
         }
 
         renderIconWidget(usernameInput, passwordInput, domain);
       }
     );
   } catch {
-    // Runtime disconnected or invalid context
+    // Context invalidated
   }
 }
 
@@ -59,7 +57,6 @@ function renderIconWidget(
   passwordInput: HTMLInputElement,
   domain: string
 ): void {
-  // Create wrapper container or position relative to input
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.setAttribute('aria-label', 'Autofill with Keypeer');
@@ -70,14 +67,14 @@ function renderIconWidget(
     height: 22px;
     border-radius: 4px;
     border: none;
-    background: #4f46e5;
+    background: #7c3aed;
     color: #ffffff;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 4px rgba(124, 58, 237, 0.4);
     transition: transform 0.15s ease, background 0.15s ease;
   `;
   btn.innerHTML = `
@@ -88,11 +85,11 @@ function renderIconWidget(
   `;
 
   btn.onmouseenter = () => {
-    btn.style.background = '#6366f1';
+    btn.style.background = '#8b5cf6';
     btn.style.transform = 'scale(1.08)';
   };
   btn.onmouseleave = () => {
-    btn.style.background = '#4f46e5';
+    btn.style.background = '#7c3aed';
     btn.style.transform = 'scale(1)';
   };
 
@@ -110,7 +107,6 @@ function renderIconWidget(
   updatePosition();
   document.body.appendChild(btn);
 
-  // Keep positioned on window scroll or resize
   window.addEventListener('scroll', updatePosition, { passive: true });
   window.addEventListener('resize', updatePosition, { passive: true });
 
@@ -136,7 +132,6 @@ function renderIconWidget(
       { type: 'KEYPEER_GET_MATCHING_CREDENTIALS', domain },
       (response: KeypeerResponse<KeypeerEntryPublic[]>) => {
         if (!response || !response.success || !response.data || response.data.length === 0) {
-          // Vault might be locked
           showLockedTooltip(btn);
           return;
         }
@@ -212,7 +207,7 @@ function showDropdown(
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: #a1a1aa;
+    color: #a78bfa;
     background: #27272a;
     border-bottom: 1px solid #3f3f46;
   `;

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { KeypeerEntryPublic } from '../../messaging/protocol';
 import { DomainAvatar } from '../../shared/components/DomainAvatar';
-import { Search, Plus, Lock, Settings, Copy, Check, Shield } from 'lucide-react';
+import { Search, Plus, Lock, Settings, Copy, Check } from 'lucide-react';
 
 interface KeypeerListScreenProps {
   entries: KeypeerEntryPublic[];
@@ -62,9 +62,11 @@ export const KeypeerListScreen: React.FC<KeypeerListScreenProps> = ({
       {/* Top Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 shrink-0 bg-zinc-900/90 backdrop-blur">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-md bg-indigo-600 flex items-center justify-center text-white">
-            <Shield className="w-3.5 h-3.5" />
-          </div>
+          <img
+            src="/icons/48.png"
+            alt="Keypeer"
+            className="w-6 h-6 rounded-md shadow-sm border border-violet-500/20"
+          />
           <span className="font-bold text-sm text-zinc-100">Keypeer</span>
           <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-zinc-700/60 font-mono">
             {entries.length}
@@ -105,7 +107,7 @@ export const KeypeerListScreen: React.FC<KeypeerListScreenProps> = ({
             placeholder="Search vault... (Press '/' to focus)"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-zinc-800/90 border border-zinc-700/70 rounded-lg pl-8 pr-3 py-1.5 text-xs text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+            className="w-full bg-zinc-800/90 border border-zinc-700/70 rounded-lg pl-8 pr-3 py-1.5 text-xs text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-violet-500 focus:border-violet-500 transition-colors"
           />
         </div>
       </div>
@@ -122,7 +124,7 @@ export const KeypeerListScreen: React.FC<KeypeerListScreenProps> = ({
               <div className="flex items-center gap-2.5 min-w-0 pr-2">
                 <DomainAvatar domain={entry.domain} size="sm" />
                 <div className="min-w-0">
-                  <div className="text-xs font-medium text-zinc-200 truncate group-hover:text-indigo-300 transition-colors">
+                  <div className="text-xs font-medium text-zinc-200 truncate group-hover:text-violet-300 transition-colors">
                     {entry.domain}
                   </div>
                   <div className="text-[11px] text-zinc-400 truncate">
