@@ -24,7 +24,7 @@ async function buildExtension() {
     },
   });
 
-  // 2. Build Background Service Worker (ES module)
+  // 2. Build Background Service Worker (Single inlined ES module bundle)
   console.log('[2/4] Building Background Service Worker...');
   await build({
     configFile: false,
@@ -35,6 +35,11 @@ async function buildExtension() {
         entry: path.resolve('src/background/index.ts'),
         formats: ['es'],
         fileName: () => 'background.js',
+      },
+      rollupOptions: {
+        output: {
+          inlineDynamicImports: true,
+        },
       },
     },
   });
